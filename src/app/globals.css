@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'DekHandwriting';
+  src: url('/fonts/DekHandwriting-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@theme {
+  --background: 192 192 192;
+  --foreground: 0 0 0;
+  --card: 192 192 192;
+  --card-foreground: 0 0 0;
+  --popover: 192 192 192;
+  --popover-foreground: 0 0 0;
+  --primary: 0 0 128;
+  --primary-foreground: 255 255 255;
+  --secondary: 128 128 128;
+  --secondary-foreground: 0 0 0;
+  --muted: 240 240 240;
+  --muted-foreground: 128 128 128;
+  --accent: 0 0 128;
+  --accent-foreground: 255 255 255;
+  --destructive: 255 0 0;
+  --destructive-foreground: 255 255 255;
+  --border: 128 128 128;
+  --input: 255 255 255;
+  --ring: 0 0 128;
+  --radius: 0rem;
+  --font-dek: 'DekHandwriting', cursive;
+}
+
+body {
+  background-color: rgb(var(--background));
+  color: rgb(var(--foreground));
+}
+
+* {
+  border-color: rgb(var(--border));
+}
+
+.font-dek {
+  font-family: var(--font-dek);
+}
+
+.pixel-font {
+  font-family: "Courier New", "Monaco", "Lucida Console", monospace;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  text-rendering: optimizeSpeed;
+}
+
+::-webkit-scrollbar {
+  width: 16px;
+}
+::-webkit-scrollbar-track {
+  background: #c0c0c0;
+  border: 1px inset #c0c0c0;
+}
+::-webkit-scrollbar-thumb {
+  background: #c0c0c0;
+  border: 1px outset #c0c0c0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a0a0a0;
+}
+::-webkit-scrollbar-corner {
+  background: #c0c0c0;
+}
+
+@media (max-width: 768px) {
+  pre {
+    font-size: 0.4rem;
+    line-height: 0.5rem;
+  }
+}
+@media (max-width: 480px) {
+  pre {
+    font-size: 0.3rem;
+    line-height: 0.4rem;
+  }
+}
+
+.win98-button {
+  background: #c0c0c0;
+  border: 2px outset #c0c0c0;
+  font-family: "Courier New", monospace;
+}
+.win98-button:active {
+  border: 2px inset #c0c0c0;
+}
+
+@keyframes windowOpen {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.window-enter {
+  animation: windowOpen 0.15s ease-out;
+}
