@@ -53,3 +53,8 @@ coverage/
 # OS files
 Thumbs.db
 .DS_Store
+
+# Claude Code
+.claude/
+*.claude.md
+claude-plans/
