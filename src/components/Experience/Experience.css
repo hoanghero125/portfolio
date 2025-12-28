@@ -1,0 +1,120 @@
+.experience {
+  background: var(--bg-secondary);
+  min-height: 100vh;
+  padding: 6rem 2rem 4rem;
+}
+
+.exp-timeline-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.exp-item {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.5s ease;
+}
+
+.exp-item.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.exp-timeline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20px;
+}
+
+.exp-dot {
+  width: 16px;
+  height: 16px;
+  background: var(--accent-pink);
+  border: 3px solid var(--bg-primary);
+  flex-shrink: 0;
+  transition: all 0.3s;
+}
+
+.exp-item:hover .exp-dot,
+.exp-item.hovered .exp-dot {
+  background: var(--accent-orange);
+  transform: scale(1.3);
+  box-shadow: 0 0 15px var(--accent-orange);
+}
+
+.exp-line {
+  width: 4px;
+  flex: 1;
+  background: var(--accent-cyan);
+  margin-top: 4px;
+}
+
+.exp-content {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  background: var(--bg-tertiary);
+  border: 3px solid transparent;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.exp-content .card-glow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.exp-item:hover .exp-content,
+.exp-item.hovered .exp-content {
+  border-color: var(--accent-orange);
+  transform: translateX(8px);
+}
+
+.exp-item:hover .card-glow,
+.exp-item.hovered .card-glow {
+  opacity: 1;
+}
+
+.exp-content h3 {
+  font-family: var(--font-pixel);
+  font-size: 0.8rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.exp-company {
+  font-size: 1.1rem;
+  color: var(--accent-pink);
+  margin-bottom: 0.25rem;
+  position: relative;
+  z-index: 1;
+}
+
+.exp-item:hover .exp-company {
+  color: var(--accent-orange);
+}
+
+.exp-period {
+  font-family: var(--font-pixel);
+  font-size: 0.5rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+  position: relative;
+  z-index: 1;
+}
+
+.exp-desc {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  position: relative;
+  z-index: 1;
+}

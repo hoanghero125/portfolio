@@ -1,0 +1,6 @@
+.pixel-icon {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  width: 24px;
+  height: 24px;
+}

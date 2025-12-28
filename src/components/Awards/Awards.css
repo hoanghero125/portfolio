@@ -1,0 +1,102 @@
+.awards {
+  background: var(--bg-secondary);
+  min-height: 100vh;
+  padding: 6rem 2rem 4rem;
+}
+
+.awards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.award-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--bg-tertiary);
+  border: var(--pixel-border) solid var(--accent-yellow);
+  box-shadow: var(--pixel-shadow) rgba(255, 217, 61, 0.2);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.award-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.award-item .card-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(255, 107, 53, 0.15), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.award-item:hover .card-glow,
+.award-item.hovered .card-glow {
+  opacity: 1;
+}
+
+.award-item:hover,
+.award-item.hovered {
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0px rgba(255, 107, 53, 0.4);
+  border-color: var(--accent-orange);
+}
+
+.award-item .pixel-icon {
+  color: var(--accent-yellow);
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.award-item:hover .pixel-icon {
+  transform: scale(1.2) rotate(-5deg);
+  color: var(--accent-orange);
+}
+
+.award-content {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.award-placement {
+  font-family: var(--font-pixel);
+  font-size: 0.6rem;
+  color: var(--accent-yellow);
+  font-weight: bold;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.award-item:hover .award-placement {
+  color: var(--accent-pink);
+  transform: scale(1.1);
+}
+
+.award-content h4 {
+  font-family: var(--font-pixel);
+  font-size: 0.6rem;
+  color: var(--text-primary);
+  margin: 0.5rem 0;
+  line-height: 1.4;
+}
+
+.award-content p {
+  font-size: 1rem;
+  color: var(--text-muted);
+}
