@@ -1,0 +1,165 @@
+/* Import pixel-style fonts */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+/* CSS Variables - Original colors with red/orange accents */
+:root {
+  /* Background colors */
+  --bg-primary: #0f0f23;
+  --bg-secondary: #1a1a2e;
+  --bg-tertiary: #16213e;
+  
+  /* Original accent colors */
+  --accent-cyan: #4ecdc4;
+  --accent-pink: #ff6b9d;
+  --accent-yellow: #ffd93d;
+  --accent-purple: #a855f7;
+  --accent-green: #6bcb77;
+  
+  /* NEW: Red/Orange accent touches */
+  --accent-orange: #ff6b35;
+  --accent-red: #ff4757;
+  --accent-warm: #ff8c42;
+  
+  /* Primary/Secondary mappings */
+  --accent-primary: var(--accent-cyan);
+  --accent-secondary: var(--accent-pink);
+  --accent-glow: rgba(78, 205, 196, 0.4);
+  
+  /* Text colors */
+  --text-primary: #e8e8e8;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+  
+  /* Fonts */
+  --font-pixel: 'Press Start 2P', cursive;
+  --font-retro: 'VT323', monospace;
+  
+  /* Pixel styling */
+  --pixel-border: 4px;
+  --pixel-shadow: 4px 4px 0px;
+}
+
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-retro);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 18px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* App Container */
+.app {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.app.loaded {
+  opacity: 1;
+}
+
+/* Global section styles */
+section {
+  position: relative;
+  z-index: 1;
+}
+
+/* Highlight text - now with warm orange */
+.highlight {
+  color: var(--accent-orange);
+  font-weight: bold;
+}
+
+/* Button styles */
+.btn {
+  font-family: var(--font-pixel);
+  font-size: 0.6rem;
+  padding: 1rem 1.5rem;
+  text-decoration: none;
+  border: var(--pixel-border) solid;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.btn-primary {
+  background: var(--accent-cyan);
+  border-color: var(--accent-cyan);
+  color: var(--bg-primary);
+  box-shadow: var(--pixel-shadow) rgba(78, 205, 196, 0.5);
+}
+
+.btn-primary:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px rgba(78, 205, 196, 0.5);
+  background: var(--accent-cyan);
+  border-color: var(--accent-cyan);
+}
+
+.btn-secondary {
+  background: transparent;
+  border-color: var(--accent-pink);
+  color: var(--accent-pink);
+  box-shadow: var(--pixel-shadow) rgba(255, 107, 157, 0.3);
+}
+
+.btn-secondary:hover {
+  background: var(--accent-pink);
+  color: var(--bg-primary);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px rgba(255, 107, 157, 0.5);
+}
+
+/* Scanline effect overlay */
+.app::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.1) 2px,
+    rgba(0, 0, 0, 0.1) 4px
+  );
+}
+
+/* CRT screen glow effect */
+.app::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9998;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  section {
+    padding: 5rem 1rem 3rem;
+  }
+}
